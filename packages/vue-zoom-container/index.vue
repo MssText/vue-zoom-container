@@ -14,19 +14,7 @@ export default {
 import AlloyFinger from "alloyfinger";
 import { Transform } from "../../public/js/transfom";
 import { withDefaults, onMounted, onBeforeUnmount } from "vue";
-
-interface BasicDomMatrix {
-  originX: number;
-  originY: number;
-  translateX: number;
-  translateY: number;
-  scaleX: number;
-  scaleY: number;
-  zoom: number;
-}
-
-type TransformElement = HTMLElement & BasicDomMatrix;
-
+import { TransformElement } from "/#/vue-zoom-container";
 // props
 const props = withDefaults(
   defineProps<{

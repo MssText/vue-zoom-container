@@ -22,6 +22,9 @@
     "skipLibCheck": true,
     "types": ["vite/client"],
     "removeComments": true,
+    "paths": {
+      "/#/*": ["types/*"]
+    }
   },
   "include": [
     "examples/**/*.ts",
