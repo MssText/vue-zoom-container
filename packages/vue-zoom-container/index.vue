@@ -1,13 +1,19 @@
 <template>
-  <div id="scale-warp">
+  <div id="zoom-container">
     <slot />
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
+export default {
+  name: "VueZoomContainer",
+};
+</script>
+
+<script setup lang="ts">
 import AlloyFinger from "alloyfinger";
 import { Transform } from "../../public/js/transfom";
-import { defineProps, withDefaults, onMounted, onBeforeUnmount } from "vue";
+import { withDefaults, onMounted, onBeforeUnmount } from "vue";
 
 interface BasicDomMatrix {
   originX: number;
@@ -51,7 +57,7 @@ let canDrag = false;
 
 // life function
 onMounted(() => {
-  target = document.querySelector("#scale-warp") as TransformElement;
+  target = document.querySelector("#zoom-container") as TransformElement;
   Transform(target);
   initAlloyFinger();
 });

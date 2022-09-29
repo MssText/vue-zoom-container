@@ -22,18 +22,19 @@
     "skipLibCheck": true,
     "types": ["vite/client"],
     "removeComments": true,
-    "paths": {
-      "/@/*": ["src/*"],
-      "/#/*": ["types/*"]
-    }
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.vue",
-    "vite.config.ts"
+    "examples/**/*.ts",
+    "examples/**/*.vue",
+    "packages/**/*.vue",
+    "types/**/*.d.ts",
+    "packages/**/*.ts",
+    "vite.config.ts",
+    "examples/main.ts"
   ],
   "exclude": [
     "node_modules",
-    "dist", "**/*.js"
+    "dist",
+    "**/*.js"
   ]
 }

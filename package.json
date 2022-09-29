@@ -1,12 +1,21 @@
 {
-  "name": "vue-scale",
-  "version": "0.0.0",
+  "name": "vue-zoom-container",
+  "version": "0.0.1",
+  "author": {
+    "name": "MssText",
+    "email": "mssgeekcoder@gmail.com"
+  },
+  "description": "A vue3-based mobile two-finger zoom in/out component",
+  "license": "ISC",
+  "private": false,
+  "main": "dist/vue-zoom-container.mjs",
+  "module": "dist/vue-zoom-container.mjs",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only",
-    "preview": "vite preview --port 4173",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "build": "vite build",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {

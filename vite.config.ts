@@ -11,7 +11,21 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@": fileURLToPath(new URL("./examples", import.meta.url)),
+    },
+  },
+  build: {
+    rollupOptions: {
+      external: ["vue"],
+      output: {
+        globals: {
+          vue: "Vue",
+        },
+      },
+    },
+    lib: {
+      entry: "./packages/vue-zoom-container/index.ts",
+      name: "vue-zoom-container",
     },
   },
 });
