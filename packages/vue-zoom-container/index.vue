@@ -12,7 +12,7 @@ export default {
 
 <script setup lang="ts">
 import AlloyFinger from "alloyfinger";
-import { Transform } from "../../public/js/transfom";
+import { Transform } from "./transfom";
 import { withDefaults, onMounted, onBeforeUnmount } from "vue";
 import { TransformElement } from "/#/vue-zoom-container";
 // props

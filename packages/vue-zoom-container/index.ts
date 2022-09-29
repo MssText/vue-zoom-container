@@ -4,7 +4,4 @@ const install = function (Vue: any) {
   Vue.component(VueZoomContainer.name, VueZoomContainer);
 };
 
-export default {
-  VueZoomContainer,
-  install,
-};
+export { VueZoomContainer, install };

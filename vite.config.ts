@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from "node:url";
+import { resolve } from "path";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
@@ -24,7 +25,7 @@ export default defineConfig({
       },
     },
     lib: {
-      entry: "./packages/vue-zoom-container/index.ts",
+      entry: resolve(__dirname, "packages/vue-zoom-container/index.ts"),
       name: "vue-zoom-container",
     },
   },

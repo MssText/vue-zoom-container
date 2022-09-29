@@ -8,11 +8,13 @@
   "description": "A vue3-based mobile two-finger zoom in/out component",
   "license": "ISC",
   "private": false,
-  "main": "dist/vue-zoom-container.mjs",
-  "module": "dist/vue-zoom-container.mjs",
-  "types": "vue-zoom-container.d.ts",
+  "type": "module",
+  "main": "dist/vue-zoom-container.umd.cjs",
+  "module": "dist/vue-zoom-container.js",
+  "types": "types/vue-zoom-container.d.ts",
   "files": [
-    "dist/*"
+    "dist/*",
+    "types/vue-zoom-container.d.ts"
   ],
   "scripts": {
     "dev": "vite",
