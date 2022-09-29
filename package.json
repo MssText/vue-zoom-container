@@ -12,6 +12,12 @@
   "main": "dist/vue-zoom-container.umd.cjs",
   "module": "dist/vue-zoom-container.js",
   "types": "types/vue-zoom-container.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-zoom-container.js",
+      "require": "./dist/vue-zoom-container.umd.cjs"
+    }
+  },
   "files": [
     "dist/*",
     "types/vue-zoom-container.d.ts"
