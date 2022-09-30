@@ -10,9 +10,45 @@
     <meta name="format-detection" content="telephone=no, email=no, date=no, address=no" />
     <title>Vue3 Zoom Demo</title>
   </head>
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0;
+    }
+    #app {
+      background-color: #f7f8fa;
+      font-family: Open Sans,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Segoe UI,Arial,Roboto,PingFang SC,miui,Hiragino Sans GB,Microsoft Yahei,sans-serif;
+      margin: 12px;
+    }
+  </style>
   <body>
     <div id="app"></div>
     <script type="module" src="/examples/main.ts"></script>
+    <script>
+      document.addEventListener('touchstart', function (event) {
+        if (event.touches.length > 1) {
+          event.preventDefault();
+        }
+      });
+
+      var lastTouchEnd = 0;
+
+      document.addEventListener(
+        'touchend',
+        function (event) {
+          var now = new Date().getTime();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+
+          lastTouchEnd = now;
+        },
+        false,
+      );
+
+      document.addEventListener('gesturestart', function (event) {
+        event.preventDefault();
+      });
     </script>
   </body>
 </html>

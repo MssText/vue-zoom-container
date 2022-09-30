@@ -89,8 +89,14 @@
 
 <style scoped>
 .box {
+  box-sizing: border-box;
+  color: black;
   width: 100%;
-  height: 100%;
-  background-color: burlywood;
+  background-color: #fff;
+  overflow: auto;
+  height: calc(100vh - 24px);
+  border-radius: 10px;
+  box-shadow: 0 0px 3px 4px #dddfe1;
+  box-shadow: 4px 4px 8px #dddfe1, -4px -4px 8px #dddfe1;
 }
 </style>
