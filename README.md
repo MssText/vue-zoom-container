@@ -14,8 +14,6 @@ A vue3-based mobile two-finger zoom in/out component(基于vue3的移动端双�
 - 禁用了IOS自带的缩放功能
 - 支持最大放大比例和最小缩放比例配置
 - ......
-## 安装
-
 ### 使用方式
 
 1.安装
