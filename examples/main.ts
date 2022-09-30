@@ -2,7 +2,7 @@ import { createApp } from "vue";
 
 import App from "./App.vue";
 import router from "./router";
-import * as VueZoomContainer from "../dist/vue-zoom-container.js";
+import * as VueZoomContainer from "../packages/vue-zoom-container/index";
 
 const app = createApp(App);
 

@@ -1,32 +1,47 @@
 import { fileURLToPath, URL } from "node:url";
 import { resolve } from "path";
-
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-  server: {
-    host: "0.0.0.0",
-  },
-  resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./examples", import.meta.url)),
+export default ({ mode }) => {
+  const env = loadEnv(mode, process.cwd());
+
+  const buildConfig =
+    env.VITE_BUILD_MODE === "component"
+      ? {
+          rollupOptions: {
+            external: ["vue"],
+            output: {
+              globals: {
+                vue: "Vue",
+              },
+            },
+          },
+          lib: {
+            entry: resolve(__dirname, "packages/vue-zoom-container/index.ts"),
+            name: "vue-zoom-container",
+          },
+        }
+      : env.VITE_BUILD_MODE === "example"
+      ? {
+          rollupOptions: {
+            input: {
+              main: resolve(__dirname, "index.html"),
+            },
+          },
+        }
+      : {};
+  return defineConfig({
+    plugins: [vue()],
+    base: "./",
+    server: {
+      host: "0.0.0.0",
     },
-  },
-  build: {
-    rollupOptions: {
-      external: ["vue"],
-      output: {
-        globals: {
-          vue: "Vue",
-        },
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./examples", import.meta.url)),
       },
     },
-    lib: {
-      entry: resolve(__dirname, "packages/vue-zoom-container/index.ts"),
-      name: "vue-zoom-container",
-    },
-  },
-});
+    build: buildConfig,
+  });
+};
