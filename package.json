@@ -24,9 +24,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build:component": "npm run clean && vite build --mode component",
-    "build:example": "npm run clean && vite build --mode example",
-    "clean": "rimraf dist",
+    "x:component": "vite build --mode component",
+    "build:example": "vite build --mode example",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
