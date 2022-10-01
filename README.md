@@ -60,7 +60,7 @@ app.mount("#app");
 
 <img src="https://cdn.staticaly.com/gh/MssText/learn@master/images/qrcode.1ru9j2exdyzk.webp" width="50%">
 
-如果不具备科学上网能力，可以在clone该项目到本地跑起来进行体验：
+如果不具备科学上网能力，可以clone该项目到本地跑起来进行体验：
 
 ```bash
 $ git clone git@github.com:MssText/vue-zoom-container.git
