@@ -51,6 +51,22 @@ app.mount("#app");
 ```
 
 这样，你的缩放需求就实现了，啦啦啦！！
-## 在线扫码体验
+## 扫码体验
+友情提示：由于使用的是国外的免费静态托管服务vercel，国内访问时常会被墙，所以需要你手机和电脑具备科学上网的能力才能正常访问：
 
-[在线体验](https://vue-zoom-container-14ez7ygu2-msstext.vercel.app/)
+[在线Demo](https://vue-zoom-container-14ez7ygu2-msstext.vercel.app/)
+
+或者直接扫码体验：
+
+<img src="https://cdn.staticaly.com/gh/MssText/learn@master/images/qrcode.1ru9j2exdyzk.webp" width="50%">
+
+如果不具备科学上网能力，可以在clone该项目到本地跑起来进行体验：
+
+```bash
+$ git clone git@github.com:MssText/vue-zoom-container.git
+
+$ npm install
+
+$ npm run dev
+```
+实用类似草料二维码的网站生成一个二维码。扫码体验即可
