@@ -1,9 +1,14 @@
 {
   "name": "vue-zoom-container",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": {
     "name": "MssText",
     "email": "mssgeekcoder@gmail.com"
+  },
+  "homepage": "https://zoom.masongsong.cn/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MssText/vue-zoom-container.git"
   },
   "description": "A vue3-based mobile two-finger zoom in/out component",
   "license": "ISC",
