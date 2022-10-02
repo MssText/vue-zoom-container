@@ -1,6 +1,6 @@
 {
   "name": "vue-zoom-container",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": {
     "name": "MssText",
     "email": "mssgeekcoder@gmail.com"
@@ -20,7 +20,8 @@
   },
   "files": [
     "dist/*",
-    "types/vue-zoom-container.d.ts"
+    "types/vue-zoom-container.d.ts",
+    "README.md"
   ],
   "scripts": {
     "dev": "vite",

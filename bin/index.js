@@ -65,10 +65,15 @@ export async function start() {
       `git commit -m "release to ${newVersion}"`,
       `git push origin ${branch}`,
     ];
-    const echo2 = `${chalk.green("[2 / 3 ]")} ${chalk.cyan("Publish to NPM")}`;
-    const part2 = ["npm run build:component", "npm publish"];
+    const echo2 = `${chalk.green("[ 2 / 3 ]")} ${chalk.cyan(
+      `Tag and push tag to ${branch}`
+    )}`;
+    const part2 = [`git tag ${newVersion}`, `git push origin ${newVersion}`];
+    const echo3 = `${chalk.green("[3 / 3 ]")} ${chalk.cyan("Publish to NPM")}`;
+    const part3 = ["npm run build:component", "npm publish"];
     await step(echo1, part1);
     await step(echo2, part2);
+    await step(echo3, part3);
   }
 
   // 处理命令执行结果
