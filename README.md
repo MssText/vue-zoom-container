@@ -52,15 +52,14 @@ app.mount("#app");
 
 这样，你的缩放需求就实现了，啦啦啦！！
 ## 扫码体验
-友情提示：由于使用的是国外的免费静态托管服务vercel，国内访问时常会被墙，所以需要你手机和电脑具备科学上网的能力才能正常访问：
 
-[在线Demo](https://vue-zoom-container-14ez7ygu2-msstext.vercel.app/)
+[在线Demo](https://zoom.masongsong.cn/)
 
 或者直接扫码体验：
 
-<img src="https://cdn.staticaly.com/gh/MssText/learn@master/images/qrcode.1ru9j2exdyzk.webp" width="50%">
+<img src="https://cdn.staticaly.com/gh/MssText/learn@master/qrcode.50pj6yl01ig0.webp" width="50%">
 
-如果不具备科学上网能力，可以clone该项目到本地跑起来进行体验：
+或者clone该项目到本地跑起来进行体验：
 
 ```bash
 $ git clone git@github.com:MssText/vue-zoom-container.git
