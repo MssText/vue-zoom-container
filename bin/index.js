@@ -65,7 +65,7 @@ export async function start() {
       `git commit -m "release to ${newVersion}"`,
       `git push origin ${branch}`,
     ];
-    const echo2 = `${chalk.green("[ 3 / 3 ]")} ${chalk.cyan("Publish to NPM")}`;
+    const echo2 = `${chalk.green("[2 / 3 ]")} ${chalk.cyan("Publish to NPM")}`;
     const part2 = ["npm run build:component", "npm publish"];
     await step(echo1, part1);
     await step(echo2, part2);
