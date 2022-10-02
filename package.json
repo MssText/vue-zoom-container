@@ -1,6 +1,6 @@
 {
   "name": "vue-zoom-container",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": {
     "name": "MssText",
     "email": "mssgeekcoder@gmail.com"
@@ -26,6 +26,7 @@
     "dev": "vite",
     "build:component": "vite build --mode component",
     "build:example": "vite build --mode example",
+    "release": "node bin/index.js",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
@@ -42,14 +43,15 @@
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/test-utils": "^2.0.2",
     "@vue/tsconfig": "^0.1.3",
+    "autoprefixer": "^10.4.12",
+    "chalk": "^5.0.1",
+    "cnjm-postcss-px-to-viewport": "^1.0.0",
     "eslint": "^8.22.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^9.3.0",
     "prettier": "^2.7.1",
     "typescript": "~4.7.4",
     "vite": "^3.0.9",
-    "vue-tsc": "^0.40.7",
-    "autoprefixer": "^10.4.12",
-    "cnjm-postcss-px-to-viewport": "^1.0.0"
+    "vue-tsc": "^0.40.7"
   }
 }
