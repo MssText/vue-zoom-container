@@ -3,9 +3,9 @@
 A vue3-based mobile two-finger zoom in/out component(基于vue3的移动端双指缩放容器组件)
 
 
-## 为什么写这个组件
+## 组件介绍
 
-之前实现过一个对文字进行双指放大和缩小的功能，在移动端上这个功能感觉挺常用的。但是在github上搜索了一波Vue3+TS的缩放组件，发现并没有找到很符合自己需求的包，所以自己就实现了这个功能，同时开源了这个小组件，造福社区
+基于[AlloyFinger](https://github.com/AlloyTeam/AlloyFinger)和`transfomjs`,有缩放需求的同学可以拿着用用试试
 
 ## 功能
 
@@ -13,8 +13,9 @@ A vue3-based mobile two-finger zoom in/out component(基于vue3的移动端双�
 - 双击恢复初始未缩放状态
 - 禁用了IOS自带的缩放功能
 - 支持最大放大比例和最小缩放比例配置
-- ......
-### 使用方式
+- 缩放状态下，支持单指拖动，最大拖动距离是屏幕尺寸的一半
+
+## 使用方式
 
 1.安装
 
@@ -51,6 +52,7 @@ app.mount("#app");
 ```
 
 这样，你的缩放需求就实现了，啦啦啦！！
+
 ## 扫码体验
 
 [在线Demo](https://zoom.masongsong.cn/)
@@ -69,3 +71,12 @@ $ npm install
 $ npm run dev
 ```
 使用类似草料二维码的网站生成一个二维码。扫码体验即可
+
+## 组件 props
+
+| name | Description | default |
+| --- | --- |
+| touchList | AlloyFinger支持手势事件 | - |
+| minScale | 最小缩小比例 | 1 |
+| maxScale | 最大放大比例 | 1.8 |
+| movePercent | 单指最大拖动比例 | 0.5 |

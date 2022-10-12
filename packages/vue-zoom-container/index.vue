@@ -21,11 +21,13 @@ const props = withDefaults(
     touchList?: any[];
     minScale?: number;
     maxScale?: number;
+    movePercent?: number;
   }>(),
   {
     touchList: () => [],
     minScale: 1,
     maxScale: 1.8,
+    movePercent: 0.5,
   }
 );
 
@@ -40,8 +42,11 @@ let af: unknown = null;
 // 缩放比例
 let initScale = 1;
 
-// 是否可以单指拖拽
-let canDrag = false;
+// 上下左右单指移动距离
+let canMoveUp = false;
+let canMoveDown = false;
+let canMoveLeft = false;
+let canMoveRight = false;
 
 // life function
 onMounted(() => {
@@ -72,7 +77,6 @@ const initAlloyFinger = () => {
 const handleDoubleTap = () => {
   if (!target) return;
   reset();
-  canDrag = false;
 };
 
 // 缩放事件
@@ -117,27 +121,78 @@ const handleMultipointEnd = () => {
   initScale = target.scaleX;
 };
 
+// 处理上下左右最大移动距离
+const handleMaxMoveDistance = (el: HTMLElement) => {
+  const rect = el.getBoundingClientRect();
+  let innerWeight = window.innerWidth || document.documentElement.clientWidth;
+  let innerHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  // 是否能向左移动元素
+  if (rect.left >= innerWeight * props.movePercent) {
+    canMoveLeft = false;
+  } else {
+    canMoveLeft = true;
+  }
+
+  // 是否能向右移动元素
+  if (rect.right <= innerWeight * props.movePercent) {
+    canMoveRight = false;
+  } else {
+    canMoveRight = true;
+  }
+
+  // 是否能向上移动元素
+  if (rect.bottom < innerHeight * props.movePercent) {
+    canMoveUp = false;
+  } else {
+    canMoveUp = true;
+  }
+
+  // 是否能向下移动元素
+  if (rect.top >= innerHeight * props.movePercent) {
+    canMoveDown = false;
+  } else {
+    canMoveDown = true;
+  }
+};
+
 // 单指拖拽移动事件
 const handlePressMove = (evt: any) => {
   // 1.缩放区域不在可视区使用translate属性拖动
   //   否则使用默认滚动行为
-  canDrag = isElementOffViewport(target);
-  if (!canDrag) return;
 
-  target.translateX += evt.deltaX!;
-  target.translateY += evt.deltaY!;
+  handleMaxMoveDistance(target);
+
+  let deltaX = evt.deltaX!;
+  let deltaY = evt.deltaY!;
+  // 处理X方向最大移动
+  if (deltaX > 0) {
+    if (canMoveLeft) {
+      // 此时到达往右移动的边界，只能向左移动
+      target.translateX += deltaX!;
+    }
+  } else {
+    if (canMoveRight) {
+      // 此时到达往左移动的边界，只能向右移动
+      target.translateX += deltaX!;
+    }
+  }
+
+  // 处理Y方向最大移动
+  if (deltaY > 0) {
+    if (canMoveDown) {
+      // 此时到达往上移动的边界，只能向下移动
+      target.translateY += deltaY;
+    }
+  } else {
+    if (canMoveUp) {
+      // 此时到达往下移动的边界，只能向上移动
+      target.translateY += deltaY;
+    }
+  }
 
   // 2.阻止默认滚动行为
   evt.preventDefault();
-};
-
-// 元素是否不在可视区内
-const isElementOffViewport = (el: HTMLElement) => {
-  const rect = el.getBoundingClientRect();
-  let innerWeight = window.innerWidth || document.documentElement.clientWidth;
-  return initScale === 1
-    ? rect.left < 0 || rect.right > innerWeight
-    : rect.top < 0 || rect.left < 0 || rect.right > innerWeight;
 };
 
 // 重置
