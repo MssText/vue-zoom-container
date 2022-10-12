@@ -74,9 +74,9 @@ $ npm run dev
 
 ## 组件 props
 
-| name | Description | default |
-| --- | --- |
-| touchList | AlloyFinger支持手势事件 | - |
-| minScale | 最小缩小比例 | 1 |
-| maxScale | 最大放大比例 | 1.8 |
-| movePercent | 单指最大拖动比例 | 0.5 |
+name | Description
+---- | ---
+touchList | AlloyFinger支持的所有手势事件
+minScale | 最小缩小比例，默认值1
+maxScale | 最大放大比例，默认值1.8
+movePercent | 单指最大拖动比例,默认值0.5
