@@ -91,12 +91,11 @@
 .box {
   box-sizing: border-box;
   color: black;
-  width: 100%;
+  width: 100vw;
   background-color: #fff;
   overflow: auto;
-  height: calc(100vh - 24px);
+  height: 100vh;
   border-radius: 10px;
-  box-shadow: 0 0px 3px 4px #dddfe1;
   box-shadow: 4px 4px 8px #dddfe1, -4px -4px 8px #dddfe1;
 }
 </style>

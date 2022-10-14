@@ -48,6 +48,9 @@ let canMoveDown = false;
 let canMoveLeft = false;
 let canMoveRight = false;
 
+// 是否可以整体拖动元素
+let canDrag = false;
+
 // life function
 onMounted(() => {
   target = document.querySelector("#zoom-container") as TransformElement;
@@ -162,6 +165,8 @@ const handlePressMove = (evt: any) => {
   //   否则使用默认滚动行为
 
   handleMaxMoveDistance(target);
+  canDrag = isElementOffViewport(target);
+  if (!canDrag) return;
 
   let deltaX = evt.deltaX!;
   let deltaY = evt.deltaY!;
@@ -193,6 +198,20 @@ const handlePressMove = (evt: any) => {
 
   // 2.阻止默认滚动行为
   evt.preventDefault();
+};
+
+// 元素是否不在可视区内
+const isElementOffViewport = (el: HTMLElement) => {
+  const rect = el.getBoundingClientRect();
+  let innerWeight = window.innerWidth || document.documentElement.clientWidth;
+
+  return (
+    rect.left < 0 ||
+    rect.right > innerWeight ||
+    rect.top < 0 ||
+    rect.left < 0 ||
+    rect.right > innerWeight
+  );
 };
 
 // 重置
